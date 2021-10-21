@@ -1,6 +1,20 @@
 ALGORITHM algorithm_name
 VAR
-    set_declarations
+  p:STRING
+  nc:INTEGER:=0
+  nv:INTEGER:=0
+  nw:INTEGER:=0
+  i:INTEGER:=0
 BEGIN
-    set_instructions
+    WHILE (p[i]<>".") DO
+        IF (p[i]<>" ") THEN
+            nc ++;
+        IF (p[i]IN [a,e,i,o,u,y]) THEN
+            nv++; 
+            END_IF
+        ELSE()
+        nw ++;
+        END_IF
+        i++;
+    END_WHILE
 END
