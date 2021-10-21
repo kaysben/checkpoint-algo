@@ -7,13 +7,13 @@ VAR
   i:INTEGER:=0
 BEGIN
     WHILE (p[i]<>".") DO
-        IF (p[i]<>" ") THEN
+        IF (p[i]<>" ") THEN{
             nc ++;
-        IF (p[i]IN [a,e,i,o,u,y]) THEN
-            nv++; 
+        IF (p[i]IN [a,e,i,o,u,y]) THEN{
+            nv++;} 
             END_IF
         ELSE()
-        nw ++;
+        nw ++;}
         END_IF
         i++;
     END_WHILE
