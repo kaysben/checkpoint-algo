@@ -1,0 +1,28 @@
+
+ALGORITHM algo2
+VAR
+     tab1 : ARRAY_OF INTEGER [];
+     tab2 : ARRAY_OF INTEGER [];
+     tab3 : ARRAY_OF INTEGER [];
+     count=0;
+BEGIN
+    FOR i FROM 0 TO length(tab1) STEP 1  DO 
+     tab1[i]= number;
+          FOR i FROM 0 TO length(tab2) STEP 1  DO
+             FOR i FROM 0 TO length(tab3) STEP 1  DO
+                     IF (tab2=number) THEN
+                       count=number;
+                       tab3[i]=number
+                     ELSE
+                     write("this number is not found")
+                     END_IF
+             END_FOR
+             i=i+1;
+           count+=count;
+          END_FOR
+      i=i+1;
+    END_FOR
+    i=i+1;
+    write("count of overlapping numbers="count);
+    write("Common numbers are :",tab3[i])
+END
