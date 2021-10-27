@@ -1,28 +1,137 @@
-
-ALGORITHM algo2
+// prob1
+ALGORITHM prob1
 VAR
      tab1 : ARRAY_OF INTEGER [];
      tab2 : ARRAY_OF INTEGER [];
-     tab3 : ARRAY_OF INTEGER [];
-     count=0;
+     sum=0;
 BEGIN
     FOR i FROM 0 TO length(tab1) STEP 1  DO 
-     tab1[i]= number;
-          FOR i FROM 0 TO length(tab2) STEP 1  DO
-             FOR i FROM 0 TO length(tab3) STEP 1  DO
-                     IF (tab2=number) THEN
-                       count=number;
-                       tab3[i]=number
-                     ELSE
-                     write("this number is not found")
-                     END_IF
-             END_FOR
-             i=i+1;
-           count+=count;
-          END_FOR
-      i=i+1;
+     IF (tab1[i] NOT IN tab2 ) THEN
+       sum := sum + tab1[i]
+     END_IF
+     FOR i FROM 0 TO length(tab) STEP 1  DO 
+     IF (tab2[i] NOT IN tab1 ) THEN
+       sum := sum + tab2[i]
+     END_IF
+    
     END_FOR
-    i=i+1;
-    write("count of overlapping numbers="count);
-    write("Common numbers are :",tab3[i])
+   whrite (sum)
+END
+
+//prob2
+
+ALGORITHM prob2
+VAR
+  tab1 : ARRAY_OF INTEGER [];
+  tab2 : ARRAY_OF INTEGER [];
+  sum=0;
+BEGIN
+   FOR i FROM 0 TO length(tab1) STEP 1  DO 
+     IF (tab1[i]  IN tab2 ) THEN
+       sum := sum + tab1[i]
+     END_IF
+      END_FOR
+      whrite (sum)
+END
+
+
+
+//prob1 htabl
+
+
+
+
+ALGORITHM prob1 htabl
+VAR
+  set_declara htab : HASH_TABLE<INTEGER,INTEGER>;
+   tab1 : ARRAY_OF INTEGER[];
+    tab2 : ARRAY_OF INTEGER[];
+   key : INTEGER;
+   count : INTEGER;
+BEGIN
+   FOR i FROM 0 TO tab1.length STEP 1 DO
+    key := tab1[i]
+       IF (htab.lookup(key)) THEN
+           count := htab.get(key)+1;
+           htab.insert(key,count);
+       ELSE
+           htab.insert(key,1);
+       END_IF
+   END_FOR
+
+     FOR i FROM 0 TO tab2.length STEP 1 DO
+    key := tab2[i]
+       IF (htab.lookup(key)) THEN
+           count := htab.get(key)+1;
+           htab.insert(key,count);
+       ELSE
+           htab.insert(key,1);
+       END_IF
+   END_FOR      
+    
+   FOR i FROM 0 TO tab1.length STEP 1  DO
+       IF (htab.get(tab1[i]) = 1) THEN
+           sum := sum + tab1[i];
+           BREAK;
+       END_IF
+   END_FOR
+
+    FOR i FROM 0 TO tab2.length STEP 1  DO
+       IF (htab.get(tab2[i]) = 1) THEN
+           sum := sum + tab2[i];
+           BREAK;
+       END_IF
+   END_FOR
+  whrite (sum)
+END
+
+
+
+//prob2 htabl
+
+
+
+ALGORITHM prob2 htabl
+VAR
+   htab : HASH_TABLE<INTEGER,INTEGER>;
+   tab1 : ARRAY_OF INTEGER[];
+    tab2 : ARRAY_OF INTEGER[];
+   key : INTEGER;
+   count : INTEGER;
+BEGIN
+FOR i FROM 0 TO tab1.length STEP 1 DO
+    key := tab1[i]
+       IF (htab.lookup(key)) THEN
+           count := htab.get(key)+1;
+           htab.insert(key,count);
+       ELSE
+           htab.insert(key,1);
+       END_IF
+   END_FOR
+
+     FOR i FROM 0 TO tab2.length STEP 1 DO
+    key := tab2[i]
+       IF (htab.lookup(key)) THEN
+           count := htab.get(key)+1;
+           htab.insert(key,count);
+       ELSE
+           htab.insert(key,1);
+       END_IF
+   END_FOR      
+    
+   FOR i FROM 0 TO tab1.length STEP 1  DO
+       IF (htab.get(tab1[i]) > 1) THEN
+           sum := sum + tab1[i];
+           BREAK;
+       END_IF
+   END_FOR
+
+    FOR i FROM 0 TO tab2.length STEP 1  DO
+       IF (htab.get(tab2[i]) > 1) THEN
+           sum := sum + tab2[i];
+           BREAK;
+       END_IF
+   END_FOR
+
+   Write( sum)
 END
