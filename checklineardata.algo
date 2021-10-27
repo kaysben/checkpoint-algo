@@ -4,12 +4,13 @@ VAR
      tab1 : ARRAY_OF INTEGER [];
      tab2 : ARRAY_OF INTEGER [];
      sum=0;
+     i:INTEGER
 BEGIN
     FOR i FROM 0 TO length(tab1) STEP 1  DO 
      IF (tab1[i] NOT IN tab2 ) THEN
        sum := sum + tab1[i]
      END_IF
-     FOR i FROM 0 TO length(tab) STEP 1  DO 
+     FOR i FROM 0 TO length(tab2) STEP 1  DO 
      IF (tab2[i] NOT IN tab1 ) THEN
        sum := sum + tab2[i]
      END_IF
@@ -25,6 +26,7 @@ VAR
   tab1 : ARRAY_OF INTEGER [];
   tab2 : ARRAY_OF INTEGER [];
   sum=0;
+  i:INTEGER
 BEGIN
    FOR i FROM 0 TO length(tab1) STEP 1  DO 
      IF (tab1[i]  IN tab2 ) THEN
